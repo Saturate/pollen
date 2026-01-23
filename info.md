@@ -37,7 +37,7 @@ docker run -d -p 3060:3060 --name pollen-api saturate/pollen-api:latest
 
 Then use `http://your-server:3060` during setup.
 
-See the [full documentation](https://github.com/Saturate/pollen) for other deployment options.
+See [Saturate/pollen-api](https://github.com/Saturate/pollen-api) for API documentation and deployment options.
 
 ## Configuration
 
