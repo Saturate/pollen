@@ -9,7 +9,7 @@ CONF_REGION = "region"
 CONF_LANGUAGE = "language"
 
 # Defaults
-DEFAULT_API_URL = "http://localhost:3060"
+DEFAULT_API_URL = "https://pollen.akj.io"
 DEFAULT_COUNTRY = "dk"
 DEFAULT_REGION = "copenhagen"
 DEFAULT_LANGUAGE = "da"

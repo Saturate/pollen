@@ -18,7 +18,7 @@ Clean REST API for Nordic pollen data with Home Assistant integration. Transform
 
 During setup, configure:
 
-- **API URL**: Where your API is running (default: `http://localhost:3060`)
+- **API URL**: Uses public API by default (`https://pollen.akj.io`), or enter your own if self-hosting
 - **Country**: `dk` (Denmark)
 - **Region**: `copenhagen` or `viborg` (or aliases `east`/`west`)
 - **Language**: `da` (Danish) or `en` (English)

@@ -21,14 +21,23 @@ Each sensor provides:
 
 ## Requirements
 
-You need the Pollen API service running:
+You need access to a Pollen API service:
 
-**Docker (Recommended):**
+**Option 1: Use the public API (Default)**
+```
+https://pollen.akj.io
+```
+The API is lightweight and hosted for public use. Just use this URL during setup.
+
+**Option 2: Self-host with Docker**
+If you prefer to run your own instance:
 ```bash
 docker run -d -p 3060:3060 --name pollen-api saturate/pollen-api:latest
 ```
 
-Or see the [full documentation](https://github.com/Saturate/pollen) for other deployment options.
+Then use `http://your-server:3060` during setup.
+
+See the [full documentation](https://github.com/Saturate/pollen) for other deployment options.
 
 ## Configuration
 
