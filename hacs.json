@@ -1,6 +1,4 @@
 {
   "name": "Pollen",
-  "content_in_root": false,
-  "homeassistant": "homeassistant",
   "render_readme": true
 }

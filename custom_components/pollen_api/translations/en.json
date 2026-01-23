@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pollen API Configuration",
+        "description": "Configure the Pollen API integration",
+        "data": {
+          "api_url": "API URL",
+          "country": "Country",
+          "region": "Region",
+          "language": "Language"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to API",
+      "invalid_region": "Invalid region selected",
+      "unknown": "Unexpected error occurred"
+    }
+  }
+}
