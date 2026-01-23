@@ -1,0 +1,6 @@
+{
+  "name": "Pollen",
+  "content_in_root": false,
+  "homeassistant": "homeassistant/custom_components/pollen_api",
+  "render_readme": true
+}
