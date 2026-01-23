@@ -2,16 +2,7 @@
 
 Clean REST API for Nordic pollen data with Home Assistant integration. Transforms Denmark's complex Firestore pollen API into simple, usable endpoints with multi-language support.
 
-## Features
-
-- 🌾 **8 Pollen Types**: Grass, Birch, Alder, Hazel, Elm, Mugwort, Alternaria, Cladosporium
-- 🌍 **Multi-language**: English and Danish translations
-- 📍 **Region Support**: Copenhagen/East and Viborg/West Denmark
-- 🔄 **Auto-updating**: Background polling every 2 hours
-- 🎯 **Filtering**: Request only the pollen types you care about
-- 🏠 **Home Assistant**: Native HACS integration with automatic sensor creation
-
-## Home Assistant Installation
+## Home Assistant Component
 
 ### Via HACS (Recommended)
 
@@ -26,6 +17,7 @@ Clean REST API for Nordic pollen data with Home Assistant integration. Transform
 ### Configuration
 
 During setup, configure:
+
 - **API URL**: Where your API is running (default: `http://localhost:3060`)
 - **Country**: `dk` (Denmark)
 - **Region**: `copenhagen` or `viborg` (or aliases `east`/`west`)
@@ -34,16 +26,18 @@ During setup, configure:
 ### Sensors Created
 
 The integration automatically creates sensors for each pollen type:
+
 - `sensor.pollen_grass` (Græs)
 - `sensor.pollen_birch` (Birk)
 - `sensor.pollen_alder` (El)
-- ...and 5 more
+- ect..
 
 Each sensor includes:
+
 - **State**: Current pollen level (0-5)
 - **Attributes**: Date, pollen type, forecast data
 
-## API Installation
+## API
 
 ### Docker (Recommended)
 
@@ -80,18 +74,16 @@ GET /v1/dk/viborg/forecast                # Viborg forecast (alias: /west)
 ### Examples
 
 **All pollen types (English):**
+
 ```bash
 curl http://localhost:3060/v1/dk/copenhagen/forecast
 ```
 
 **Filtered types (Danish):**
+
 ```bash
 curl 'http://localhost:3060/v1/dk/copenhagen/forecast?lang=da&types=grass,birch'
 ```
-
-## Data Source
-
-Pollen data from [Astma-Allergi Danmark](https://www.astma-allergi.dk)
 
 ## License
 
