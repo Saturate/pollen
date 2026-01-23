@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Any
 import aiohttp
 import voluptuous as vol
+import logging
 
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
@@ -21,6 +22,8 @@ from .const import (
     DEFAULT_LANGUAGE,
     DOMAIN,
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 async def validate_api(hass: HomeAssistant, api_url: str, country: str) -> dict[str, list[str]]:
@@ -58,7 +61,8 @@ class PollenApiConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     title=f"Pollen API ({user_input.get(CONF_REGION, DEFAULT_REGION)})",
                     data=user_input,
                 )
-            except Exception:
+            except Exception as err:
+                _LOGGER.error("Failed to connect to API: %s", err)
                 errors["base"] = "cannot_connect"
 
         return self.async_show_form(
