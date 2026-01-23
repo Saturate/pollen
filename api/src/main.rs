@@ -24,6 +24,11 @@ async fn main() {
     let addr = SocketAddr::from(([0, 0, 0, 0], 3060));
     tracing::info!("Server listening on {}", addr);
 
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+    let listener = tokio::net::TcpListener::bind(addr)
+        .await
+        .expect("Failed to bind to port 3060");
+
+    axum::serve(listener, app)
+        .await
+        .expect("Server error");
 }

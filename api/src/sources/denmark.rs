@@ -25,7 +25,11 @@ pub struct FirestoreMap {
 }
 
 pub async fn fetch() -> Result<FirestoreDocument> {
-    let response = reqwest::get(DANISH_API_URL).await?;
+    let client = reqwest::Client::builder()
+        .timeout(std::time::Duration::from_secs(30))
+        .build()?;
+
+    let response = client.get(DANISH_API_URL).send().await?;
     let json_string: String = response.json().await?;
     let document: FirestoreDocument = serde_json::from_str(&json_string)?;
     Ok(document)

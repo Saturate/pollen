@@ -39,7 +39,25 @@ Each sensor includes:
 
 ## API
 
-### Docker (Recommended)
+### Docker Hub (Easiest)
+
+```bash
+docker run -d -p 3060:3060 --name pollen-api saturate/pollen-api:latest
+```
+
+Or with docker-compose:
+
+```yaml
+services:
+  pollen-api:
+    image: saturate/pollen-api:latest
+    container_name: pollen-api
+    ports:
+      - "3060:3060"
+    restart: unless-stopped
+```
+
+### Docker Compose (Build from Source)
 
 ```bash
 docker compose up -d
