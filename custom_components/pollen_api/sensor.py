@@ -123,12 +123,13 @@ class PollenSensor(SensorEntity):
                             if not item.get("is_forecast", False):
                                 level = item["level"]
                                 labels = LEVEL_LABELS_DA if self._language == "da" else LEVEL_LABELS_EN
-                                self._state = labels.get(level, str(level))
+                                self._state = level
                                 self._attributes = {
                                     "date": item["date"],
                                     "pollen_type": item["pollen_type"],
                                     "pollen_name": item["pollen_name"],
                                     "level": level,
+                                    "level_text": labels.get(level, str(level)),
                                 }
 
                                 forecasts = [
