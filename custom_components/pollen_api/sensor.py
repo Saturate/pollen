@@ -23,6 +23,24 @@ _LOGGER = logging.getLogger(__name__)
 
 SCAN_INTERVAL = timedelta(seconds=DEFAULT_SCAN_INTERVAL)
 
+LEVEL_LABELS_EN = {
+    0: "None",
+    1: "Very Low",
+    2: "Low",
+    3: "Moderate",
+    4: "High",
+    5: "Very High",
+}
+
+LEVEL_LABELS_DA = {
+    0: "Ingen",
+    1: "Meget Lav",
+    2: "Lav",
+    3: "Moderat",
+    4: "Høj",
+    5: "Meget Høj",
+}
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -79,7 +97,6 @@ class PollenSensor(SensorEntity):
 
         self._attr_name = f"Pollen {pollen_name}"
         self._attr_unique_id = f"{country}_{region}_{pollen_id}"
-        self._attr_native_unit_of_measurement = "level"
 
     @property
     def state(self):
@@ -104,11 +121,14 @@ class PollenSensor(SensorEntity):
                     for item in data:
                         if item["pollen_type"] == self._pollen_id:
                             if not item.get("is_forecast", False):
-                                self._state = item["level"]
+                                level = item["level"]
+                                labels = LEVEL_LABELS_DA if self._language == "da" else LEVEL_LABELS_EN
+                                self._state = labels.get(level, str(level))
                                 self._attributes = {
                                     "date": item["date"],
                                     "pollen_type": item["pollen_type"],
                                     "pollen_name": item["pollen_name"],
+                                    "level": level,
                                 }
 
                                 forecasts = [
