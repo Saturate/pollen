@@ -1,5 +1,5 @@
 {
-  "domain": "pollen_api",
+  "domain": "saturate_pollen",
   "name": "Pollen",
   "codeowners": ["@Saturate"],
   "config_flow": true,
