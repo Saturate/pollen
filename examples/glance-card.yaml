@@ -1,0 +1,20 @@
+# Glance Card - Compact view with automatic color coding
+# Shows numeric state (0-5) with automatic coloring based on level
+
+type: glance
+title: Pollen Levels Today
+columns: 4
+state_color: true
+entities:
+  - entity: sensor.pollen_grass
+    name: Grass
+    icon: mdi:grass
+  - entity: sensor.pollen_birch
+    name: Birch
+    icon: mdi:tree
+  - entity: sensor.pollen_alder
+    name: Alder
+    icon: mdi:tree-outline
+  - entity: sensor.pollen_hazel
+    name: Hazel
+    icon: mdi:nature

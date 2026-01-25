@@ -1,0 +1,22 @@
+# Grid Layout - Multiple sensors in a responsive grid
+
+type: grid
+columns: 2
+square: false
+cards:
+  - type: entity
+    entity: sensor.pollen_grass
+    name: Græs
+    icon: mdi:grass
+  - type: entity
+    entity: sensor.pollen_birch
+    name: Birk
+    icon: mdi:tree
+  - type: entity
+    entity: sensor.pollen_alder
+    name: El
+    icon: mdi:tree-outline
+  - type: entity
+    entity: sensor.pollen_hazel
+    name: Hassel
+    icon: mdi:nature

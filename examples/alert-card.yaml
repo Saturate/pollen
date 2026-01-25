@@ -1,0 +1,11 @@
+# Alert Card - Shows only when pollen levels are high
+# Displays a warning when grass pollen is above level 3
+
+type: conditional
+conditions:
+  - condition: numeric_state
+    entity: sensor.pollen_grass
+    above: 3
+card:
+  type: markdown
+  content: ⚠️ **High pollen alert!** Grass pollen is at {{ states('sensor.pollen_grass') }}

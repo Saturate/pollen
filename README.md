@@ -36,8 +36,20 @@ The integration automatically creates sensors for each pollen type:
 
 Each sensor includes:
 
-- **State**: Current pollen level (0-5)
-- **Attributes**: Date, pollen type, forecast data
+- **State**: Numeric pollen level (0-5 scale)
+- **Attributes**:
+  - `level_text`: Translated text label (None/Very Low/Low/Moderate/High/Very High)
+  - `date`, `pollen_type`, `pollen_name`: Current data details
+  - `forecast`: Array of upcoming forecast days
+
+## Dashboard Examples
+
+See the [examples/](examples/) folder for ready-to-use dashboard card configurations:
+- **Glance Card** - Compact view with automatic color coding
+- **Gauge Cards** - Visual representation with severity colors
+- **Grid Layout** - Responsive multi-sensor display
+- **Alert Card** - Conditional warnings for high levels
+- **Entities Card** - Simple list view
 
 ## API Service
 

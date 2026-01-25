@@ -1,0 +1,23 @@
+# Gauge Cards - Visual representation of pollen levels
+# Shows numeric values on a 0-5 scale with color thresholds
+
+type: horizontal-stack
+cards:
+  - type: gauge
+    entity: sensor.pollen_grass
+    name: Grass
+    min: 0
+    max: 5
+    severity:
+      green: 0
+      yellow: 2
+      red: 4
+  - type: gauge
+    entity: sensor.pollen_birch
+    name: Birch
+    min: 0
+    max: 5
+    severity:
+      green: 0
+      yellow: 2
+      red: 4

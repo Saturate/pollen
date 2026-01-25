@@ -1,0 +1,8 @@
+# Simple List - Basic entity list view
+
+type: entities
+title: Pollen Levels
+entities:
+  - entity: sensor.pollen_grass
+  - entity: sensor.pollen_birch
+  - entity: sensor.pollen_alder
