@@ -17,17 +17,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: HACS validation
-        uses: hacs/action@main
-        with:
-          category: integration
-
-      - name: Generate release notes
-        id: notes
-        run: |
-          PREVIOUS_TAG=$(git tag --sort=-v:refname | head -2 | tail -1)
-          echo "previous=$PREVIOUS_TAG" >> "$GITHUB_OUTPUT"
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
