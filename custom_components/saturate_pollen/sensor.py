@@ -118,7 +118,9 @@ class PollenSensor(SensorEntity):
                 if response.status == 200:
                     data = await response.json()
 
-                    for item in data:
+                    items = data.get("forecasts", data) if isinstance(data, dict) else data
+
+                    for item in items:
                         if item["pollen_type"] == self._pollen_id:
                             if not item.get("is_forecast", False):
                                 level = item["level"]
@@ -133,7 +135,7 @@ class PollenSensor(SensorEntity):
                                 }
 
                                 forecasts = [
-                                    f for f in data
+                                    f for f in items
                                     if f["pollen_type"] == self._pollen_id and f.get("is_forecast", False)
                                 ]
                                 if forecasts:
